@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>QR Attendance</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+</head>
+
+<body class="bg-slate-950 text-white min-h-screen">
+
+<div class="flex min-h-screen">
+
+    <!-- SIDEBAR -->
+
+    <aside class="w-72 bg-slate-900 p-6">
+
+        <h1 class="text-3xl font-bold text-emerald-400">
+            QR Attendance
+        </h1>
+
+        <p class="text-slate-400 mt-2">
+            Dashboard Absensi
+        </p>
+
+        <div class="mt-8 space-y-4">
+
+            <div class="bg-slate-800 p-5 rounded-xl">
+                <p>Total Hadir</p>
+                <h2 id="totalHadir"
+                class="text-4xl font-bold text-emerald-400">
+                    0
+                </h2>
+            </div>
+
+            <div class="bg-slate-800 p-5 rounded-xl">
+                <p>Status</p>
+                <div id="result"
+                class="mt-2 font-semibold">
+                    Menunggu Scan...
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+
+    <main class="flex-1 p-8">
+
+        <div class="bg-slate-900 p-6 rounded-2xl">
+
+            <h2 class="text-2xl font-bold mb-4">
+                QR Scanner
+            </h2>
+
+            <div id="reader"></div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
