@@ -2,157 +2,151 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>QR Attendance</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://unpkg.com/html5-qrcode"></script>
 
 </head>
 
 <body class="bg-slate-950 text-white min-h-screen">
 
-<div class="flex min-h-screen">
+<div class="max-w-7xl mx-auto p-6">
 
-    <!-- SIDEBAR -->
+    <!-- HEADER -->
 
-    <aside
-        class="w-80 bg-slate-900 border-r border-slate-800 p-6">
+    <div class="mb-6">
 
-        <h1
-            class="text-3xl font-bold text-emerald-400">
+        <h1 class="text-4xl font-bold text-emerald-400">
             QR Attendance
         </h1>
 
-        <p
-            class="text-slate-400 mt-2">
-            Dashboard Absensi
+        <p class="text-slate-400 mt-2">
+            Sistem Absensi QR Terintegrasi Google Sheets
         </p>
 
-        <!-- Statistik -->
+    </div>
 
-        <div class="mt-8 space-y-4">
+    <!-- SCANNER -->
 
-            <div
-                class="bg-slate-800 p-5 rounded-xl">
+    <div class="bg-slate-900 rounded-3xl p-6">
 
-                <p class="text-slate-400">
-                    Total Peserta
-                </p>
-
-                <h2
-                    id="totalPeserta"
-                    class="text-4xl font-bold">
-                    0
-                </h2>
-
-            </div>
-
-            <div
-                class="bg-slate-800 p-5 rounded-xl">
-
-                <p class="text-slate-400">
-                    Total Hadir
-                </p>
-
-                <h2
-                    id="totalHadir"
-                    class="text-4xl font-bold text-green-400">
-                    0
-                </h2>
-
-            </div>
-
-            <div
-                class="bg-slate-800 p-5 rounded-xl">
-
-                <p class="text-slate-400">
-                    Belum Hadir
-                </p>
-
-                <h2
-                    id="belumHadir"
-                    class="text-4xl font-bold text-red-400">
-                    0
-                </h2>
-
-            </div>
-
-        </div>
-
-    </aside>
-
-    <!-- CONTENT -->
-
-    <main class="flex-1 p-8">
-
-        <!-- SCANNER -->
+        <h2 class="text-2xl font-bold mb-4">
+            QR Scanner
+        </h2>
 
         <div
-            class="bg-slate-900 p-6 rounded-2xl shadow-lg">
-
-            <h2
-                class="text-2xl font-bold mb-4">
-                QR Scanner
-            </h2>
-
-            <div
-                id="reader"
-                class="overflow-hidden rounded-xl">
-            </div>
-
+            id="reader"
+            class="overflow-hidden rounded-2xl">
         </div>
 
-        <!-- STATUS -->
+    </div>
+
+    <!-- STATISTIK -->
+
+    <div
+        class="grid md:grid-cols-3 gap-5 mt-6">
 
         <div
-            class="mt-6 bg-slate-900 p-6 rounded-2xl">
+            class="bg-slate-900 rounded-2xl p-5">
+
+            <p class="text-slate-400">
+                Total Peserta
+            </p>
 
             <h2
-                class="text-xl font-bold mb-3">
-                Status Scan
+                id="totalPeserta"
+                class="text-5xl font-bold mt-2">
+                0
             </h2>
 
-            <div
-                id="result"
-                class="text-lg font-semibold">
-
-                Menunggu Scan...
-
-            </div>
-
         </div>
-
-        <!-- RIWAYAT -->
 
         <div
-            class="mt-6 bg-slate-900 p-6 rounded-2xl">
+            class="bg-slate-900 rounded-2xl p-5">
+
+            <p class="text-slate-400">
+                Hadir
+            </p>
 
             <h2
-                class="text-xl font-bold mb-3">
-                Riwayat Scan
+                id="totalHadir"
+                class="text-5xl font-bold mt-2 text-green-400">
+                0
             </h2>
-
-            <div
-                id="history"
-                class="space-y-3">
-
-            </div>
 
         </div>
 
-    </main>
+        <div
+            class="bg-slate-900 rounded-2xl p-5">
+
+            <p class="text-slate-400">
+                Belum Hadir
+            </p>
+
+            <h2
+                id="belumHadir"
+                class="text-5xl font-bold mt-2 text-red-400">
+                0
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- POPUP STATUS -->
+
+    <div
+        id="result"
+        class="mt-6 bg-slate-900 rounded-2xl p-6 text-center">
+
+        <div class="text-xl text-slate-400">
+            Menunggu Scan...
+        </div>
+
+    </div>
+
+    <!-- 3 SCAN TERAKHIR -->
+
+    <div
+        class="mt-6 bg-slate-900 rounded-2xl p-6">
+
+        <h2
+            class="text-xl font-bold mb-4">
+            3 Scan Terakhir
+        </h2>
+
+        <div
+            id="history"
+            class="space-y-3">
+
+        </div>
+
+    </div>
 
 </div>
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="hidden fixed top-5 right-5 px-6 py-4 rounded-xl shadow-xl font-bold z-50">
+</div>
+
+<!-- AUDIO -->
+
+<audio id="successSound">
+    <source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg">
+</audio>
+
+<audio id="errorSound">
+    <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg">
+</audio>
 
 <script src="app.js"></script>
 
 </body>
-
 </html>
