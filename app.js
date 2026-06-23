@@ -1,6 +1,5 @@
 const API_URL =
-"https://script.google.com/macros/s/AKfycbzrqOpg7WlZyLpJfQ0pQXoFJ_n5iHSZbOfalMS6Eywsq62XJ2uMsIGw9H1svXPoms9YNg/exec";
-
+"https://script.google.com/macros/s/AKfycbzEwK0MjaVJSup53wMuc8ADwn89-wRxJUiRQAJMGdoL8Mgg7zVi4QrV7v6BXo39mnuesQ/exec"
 let lastScan = "";
 let lastTime = 0;
 
